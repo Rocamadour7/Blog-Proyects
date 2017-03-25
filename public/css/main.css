@@ -1,0 +1,11 @@
+.jumbotron {
+  background-image: url('http://lorempixel.com/1920/648/');
+  background-size: cover;
+  height: 60vh;
+}
+
+.img-container {
+  width: 40%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
