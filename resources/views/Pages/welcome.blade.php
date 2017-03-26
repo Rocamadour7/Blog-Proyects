@@ -23,8 +23,8 @@
 
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Acerca de mi</a></li>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/Acercademi">Acerca de mi</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
             <ul class="dropdown-menu">

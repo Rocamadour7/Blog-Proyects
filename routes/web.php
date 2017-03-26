@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'PagesController@getIndex');
+
+Route::get('/Acercademi', 'PagesController@getAbout');
