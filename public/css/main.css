@@ -1,11 +1,20 @@
-.jumbotron {
-  background-color: #EEE;
-  background-size: cover;
-  height: 60vh;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-.img-container {
-  width: 40%;
-  margin-right: 10px;
-  margin-bottom: 10px;
+body {
+  margin-bottom: 50px;
+}
+
+.footer {
+  background-color: #EEE;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+
+.footer p {
+  padding-top: 14px;
 }
