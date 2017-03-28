@@ -1,5 +1,5 @@
 {
-  "/js/mdb.js": "/js/mdb.js",
-  "/css/mdb.css": "/css/mdb.css",
-  "/js/tether.js": "/js/tether.js"
+  "/js/app.js": "/js/app.js",
+  "/css/app.css": "/css/app.css",
+  "/js/validator.min.js": "/js/validator.min.js"
 }

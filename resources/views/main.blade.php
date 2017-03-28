@@ -9,6 +9,8 @@
 
   @include('partials._nav')
 
+  @include('partials._alerts')
+
   @yield('jumbotron')
 
   <section class="container">
