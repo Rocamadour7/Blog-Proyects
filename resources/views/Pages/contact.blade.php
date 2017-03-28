@@ -7,23 +7,28 @@
 @endsection
 
 @section('content')
-  <div class="col-md-8 col-md-offset-2 form-container">
-    <h2>Contáctame</h2>
-    <hr>
-    <form>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-container card">
+        <div class="header header-primary text-center">
+          <h4>Contáctame</h4>
+        </div>
+        <form>
+          <div class="form-group label-floating">
+            <label for="email" class="control-label">Email:</label>
+            <input type="email" class="form-control" name="email" id="email">
+          </div>
+          <div class="form-group label-floating">
+            <label for="subject" class="control-label">Asunto:</label>
+            <input type="text" class="form-control" name="subject" id="subject">
+          </div>
+          <div class="form-group label-floating">
+            <label for="message" class="control-label">Mensaje:</label>
+            <textarea class="form-control" name="message" id="message" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-simple">Enviar</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="subject">Asunto:</label>
-        <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">
-      </div>
-      <div class="form-group">
-        <label for="message">Mensaje:</label>
-        <textarea class="form-control" name="message" id="message" placeholder="Escribe tu mensaje aquí..." rows="6"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-    </form>
+    </div>
   </div>
 @endsection

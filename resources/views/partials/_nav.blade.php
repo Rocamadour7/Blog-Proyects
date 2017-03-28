@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<nav class="navbar navbar-transparent navbar-color-on-scroll navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="mainNav" aria-expanded="false">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
         <li><a href="/">Inicio</a></li>
         <li><a href="/AcercaDeMi">Acerca de mi</a></li>
         <li class="dropdown">

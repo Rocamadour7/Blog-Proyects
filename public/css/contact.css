@@ -1,7 +1,11 @@
 .form-container {
-  padding-top: 50px;
+  margin: 160px 0 40px;
 }
 
-textarea {
-  resize: none;
+.header {
+  margin-top: -40px !important;
+}
+
+form {
+  padding: 0 30px 0 30px;
 }
