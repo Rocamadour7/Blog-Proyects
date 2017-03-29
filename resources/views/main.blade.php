@@ -13,7 +13,7 @@
 
   @yield('jumbotron')
 
-  <section class="container">
+  <section id="main-container" class="container">
 
     @yield('content')
 
