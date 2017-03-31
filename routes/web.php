@@ -17,4 +17,4 @@ Route::get('AcercaDeMi', 'PagesController@getAbout');
 
 Route::get('Contacto', 'PagesController@getContact');
 
-Route::resource('posts', 'PostController');
+Route::resource('posts', 'PostsController');

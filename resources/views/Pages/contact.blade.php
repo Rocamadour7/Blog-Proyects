@@ -29,6 +29,7 @@
               <textarea class="form-control" name="message" id="message" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block btn-simple">Enviar</button>
+            {{ csrf_field() }}
           </form>
         </div>
       </div>

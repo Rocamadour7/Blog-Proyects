@@ -24,7 +24,7 @@
               <textarea id="body" name="body" rows="10" class="form-control" required></textarea>
             </div>
             <input type="submit" value="Create Post" class="btn btn-success btn-lg btn-block btn-simple">
-            <input type="hidden" name="_token" value="{{ Session::token() }}">
+            {{ csrf_field() }}
           </form>
         </div>
       </div>

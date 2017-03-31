@@ -14,22 +14,22 @@
         <div class="content">
           <dl class="dl-horizontal">
             <dt>Creado:</dt>
-            <dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+            <dd>{{ $post->created_at->format('M j, Y h:i A') }}</dd>
             <dt>Última Actualización:</dt>
-            <dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+            <dd>{{ $post->updated_at->format('M j, Y h:i A') }}</dd>
           </dl>
           <hr>
           <div class="row">
             <div class="col-sm-6">
               <form method="POST" action="{{ route('posts.edit', $post->id) }}">
-                <input type="submit" value="Edit" class="btn btn-primary btn-block">
-                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <input type="submit" value="Modificar" class="btn btn-primary btn-block">
+                {{ csrf_field() }}
               </form>
             </div>
             <div class="col-sm-6">
               <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
-                <input type="submit" value="Delete" class="btn btn-danger btn-block">
-                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <input type="submit" value="Eliminar" class="btn btn-danger btn-block">
+                {{ csrf_field() }}
               </form>
             </div>﻿
           </div>
