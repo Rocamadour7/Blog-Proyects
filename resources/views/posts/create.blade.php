@@ -17,7 +17,7 @@
           <form method="POST" action="{{ route('posts.store') }}" data-toggle="validator" role="form">
             <div class="form-group label-floating">
               <label for="title" class="control-label">Título:</label>
-              <input type="text" id="title" name="title" class="form-control" required maxlength="255">
+              <input type="text" id="title" name="title" class="form-control input-lg" required maxlength="255">
             </div>
             <div class="form-group label-floating">
               <label for="body" class="control-label">Contenido:</label>

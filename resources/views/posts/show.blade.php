@@ -24,12 +24,14 @@
               <form method="POST" action="{{ route('posts.edit', $post->id) }}">
                 <input type="submit" value="Modificar" class="btn btn-primary btn-block">
                 {{ csrf_field() }}
+                {{ method_field('GET') }}
               </form>
             </div>
             <div class="col-sm-6">
               <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
                 <input type="submit" value="Eliminar" class="btn btn-danger btn-block">
                 {{ csrf_field() }}
+                {{ method_field('DELETE') }}
               </form>
             </div>﻿
           </div>

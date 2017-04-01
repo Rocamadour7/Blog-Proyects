@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <table class="table table-hover">
+          <table class="table table-hover table-condensed">
             <thead>
               <th>#</th>
               <th>Título</th>
@@ -33,9 +33,22 @@
                   <td>{{ $post->title }}</td>
                   <td>{{ str_limit($post->body, 50) }}</td>
                   <td>{{ $post->created_at->format('M j, Y h:i A') }}</td>
-                  <td>
-                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-default">Ver</a>
-                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-danger">Eliminar</a>
+                  <td class="btn-column">
+                    <form method="POST" action="{{ route('posts.show', $post->id) }}">
+                      <input type="submit" value="Ver" class="btn btn-sm btn-default">
+                      {{ csrf_field() }}
+                      {{ method_field('GET') }}
+                    </form>
+                    <form method="POST" action="{{ route('posts.edit', $post->id) }}">
+                      <input type="submit" value="Modificar" class="btn btn-sm btn-primary">
+                      {{ csrf_field() }}
+                      {{ method_field('GET') }}
+                    </form>
+                    <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
+                      <input type="submit" value="Eliminar" class="btn btn-sm btn-danger">
+                      {{ csrf_field() }}
+                      {{ method_field('DELETE') }}
+                    </form>
                   </td>
                 </tr>
               @endforeach

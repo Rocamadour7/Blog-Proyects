@@ -72,7 +72,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $post = Post::find($id);
+      return view('posts.edit')->withPost($post);
     }
 
     /**
@@ -84,7 +85,19 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, array (
+        'title' => 'required|max:255',
+        'body'  => 'required',
+      ));
+
+      $post = Post::find($id);
+      $post->title = $request->title;
+      $post->body  = $request->body;
+      $post->save();
+
+      Session::flash('success', 'Cambios guardados!');
+
+      return redirect()->route('posts.show', $post->id);
     }
 
     /**
@@ -95,6 +108,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $post = Post::find($id);
+      $post->delete();
+
+      Session::flash('success', 'La publicación ha sido eliminada!');
+      return redirect()->route('posts.index');
     }
 }
