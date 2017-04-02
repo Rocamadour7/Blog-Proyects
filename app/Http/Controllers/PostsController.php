@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Session;
+use Carbon\Carbon;
 
 class PostsController extends Controller
 {
+    // Carbon Constructor
+    public function __construct()
+    {
+      Carbon::setLocale('es');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
+      $posts = Post::latest('id')->paginate(10);
       return view('posts.index')->withPosts($posts);
     }
 
