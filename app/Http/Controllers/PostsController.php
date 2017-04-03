@@ -52,6 +52,7 @@ class PostsController extends Controller
       $post = new Post;
       $post->title = $request->title;
       $post->body  = $request->body;
+      $post->slug  = str_slug($request->title, '-');
       $post->save();
 
       Session::flash('success', 'Publicación guardada exitosamente!');
@@ -100,6 +101,7 @@ class PostsController extends Controller
       $post = Post::find($id);
       $post->title = $request->title;
       $post->body  = $request->body;
+      $post->slug  = str_slug($request->title, '-');
       $post->save();
 
       Session::flash('success', 'Cambios guardados!');

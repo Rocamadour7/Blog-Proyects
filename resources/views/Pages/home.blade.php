@@ -25,12 +25,12 @@
                 <img src="http://lorempixel.com/800/450/technics/" alt="ImagePlaceholder">
               </a>
               <h2 class="post-title">
-                <a href="#">{{ $post->title }}</a>
+                <a href="{{ route('blog.single', $post->slug) }}">{{ $post->title }}</a>
               </h2>
               <p><span class="post-date">{{ $post->created_at->diffForHumans() }} por </span><a href="#">Luis Molina</a></p>
               <p class="post-content text-justify">{{ $post->body }}</p>
               <div class="button-container">
-                <a href="#" class="btn btn-primary">Leer Más</a>
+                <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Leer Más</a>
                 <a href="#" class="btn btn-success">Comentarios <span class="badge">20</span></a>
               </div>
             </article>
