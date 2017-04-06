@@ -17,6 +17,15 @@ Route::get('AcercaDeMi', 'PagesController@getAbout');
 
 Route::get('Contacto', 'PagesController@getContact');
 
-Route::resource('posts', 'PostsController');
+Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
 
-Route::get('blog/{slug}', ['uses' => 'BlogController@getSingle', 'as' => 'blog.single'])->where('slug', '[\w\d\-\_]+');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::prefix('admin')->group(function()
+{
+  Route::resource('posts', 'PostsController');
+  Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+  Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+});

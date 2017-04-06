@@ -12,6 +12,7 @@ class PostsController extends Controller
     // Carbon Constructor
     public function __construct()
     {
+      $this->middleware('auth:admin');
       Carbon::setLocale('es');
     }
 
