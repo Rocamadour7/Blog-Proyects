@@ -9,6 +9,8 @@
         <div class="content">
           <h1>{{ $post->title }}</h1>
           <p class="lead">{{ $post->body }}</p>
+          <hr />
+          <p class="muted">Categoría: {{ $post->category->name }}</p>
         </div>
       </div>
     </div>
