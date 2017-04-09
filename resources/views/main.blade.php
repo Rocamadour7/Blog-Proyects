@@ -22,7 +22,6 @@
 <!--  @include('partials._footer') Trabajar en el footer para que entre en el Material Design -->
 
   @include('partials._scripts')
-  @yield('scripts')
 
 </body>
 </html>

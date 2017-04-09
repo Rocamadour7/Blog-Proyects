@@ -25,6 +25,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::prefix('admin')->group(function()
 {
+  Route::resource('users', 'UserControlController', ['except' => ['store', 'show']]);
+  Route::resource('admins', 'AdminControlController', ['except' => ['store', 'show']]);
   Route::resource('posts', 'PostsController');
   Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
   Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login.submit');

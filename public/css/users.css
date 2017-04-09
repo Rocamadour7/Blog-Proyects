@@ -1,0 +1,5 @@
+.btn-column {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
