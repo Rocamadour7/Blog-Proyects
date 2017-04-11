@@ -11,10 +11,10 @@
           <p class="category">Llena todos los espacios</p>
         </div>
         <div class="card-content">
-          <form action="{{ route('register') }}" method="POST" data-toggle="validator" role="form">
+          <form action="{{ route('admins.store') }}" method="POST" data-toggle="validator" role="form">
             <div class="form-group label-floating is-empty">
               <label for="name" class="control-label">Nombre</label>
-              <input type="text" name="name" class="form-control" required maxlength="255">
+              <input type="text" name="name" class="form-control" required maxlength="255" autofocus>
             </div>
             <div class="form-group label-floating is-empty">
               <label for="email" class="control-label">Email</label>

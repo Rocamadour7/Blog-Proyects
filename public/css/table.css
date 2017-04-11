@@ -1,13 +1,9 @@
-.card {
-  margin-top: 50px;
-}
-
-.btn {
-  white-space: normal;
-}
-
 .btn-column {
   display: -webkit-inline-flex;
   display: -ms-inline-flex;
   display: inline-flex;
+}
+
+.cancel-btn {
+  margin-right: 7px !important;
 }

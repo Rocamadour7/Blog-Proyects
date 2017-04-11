@@ -3,7 +3,7 @@
 <head>
 
 	@include('partialsadmin._head')
-	
+
 </head>
 <body>
 
@@ -28,6 +28,9 @@
     </div>
 	</div>
 
+	@yield('modals')
+
 	@include('partialsadmin._scripts')
+
 </body>
 </html>

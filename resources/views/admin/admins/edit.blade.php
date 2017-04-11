@@ -14,7 +14,7 @@
           <form action="{{ route('admins.update', $admin->id) }}" method="POST" data-toggle="validator" role="form">
             <div class="form-group label-floating">
               <label for="name" class="control-label">Nombre</label>
-              <input type="text" name="name" class="form-control" required maxlength="255" value="{{ $admin->name }}">
+              <input type="text" name="name" class="form-control" required maxlength="255" value="{{ $admin->name }}" autofocus>
             </div>
             <div class="form-group label-floating">
               <label for="email" class="control-label">Email</label>

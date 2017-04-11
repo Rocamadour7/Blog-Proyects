@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use App\User;
+use App\Category;
 use Session;
 
-class AdminControlController extends Controller
+class CategoriesController extends Controller
 {
     public function __construct() {
       $this->middleware('auth:admin');
@@ -20,9 +19,8 @@ class AdminControlController extends Controller
      */
     public function index()
     {
-      $users = User::orderBy('name')->paginate(10);
-      $admins = Admin::orderBy('name')->paginate(10);
-      return view('admin.users.index')->withAdmins($admins)->withUsers($users);
+      $categories = Category::orderBy('id')->paginate(10);
+      return view('admin.categories.index')->withCategories($categories);
     }
 
     /**
@@ -32,7 +30,7 @@ class AdminControlController extends Controller
      */
     public function create()
     {
-      return view('admin.admins.create');
+      return view('admin.categories.create');
     }
 
     /**
@@ -43,19 +41,17 @@ class AdminControlController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, array(
-        'name'     => 'required|max:255',
-        'email'    => 'required|email|unique:admins',
-        'password' => 'required|min:6|confirmed'
+      $this->validate($request, array (
+        'name'       => 'required|max:255',
       ));
 
-      $admin = new Admin;
-      $admin->name = $request->name;
-      $admin->email = $request->email;
-      $admin->password = bcrypt($request->password);
-      $admin->save();
+      $category = new Category;
+      $category->name = $request->name;
+      $category->save();
 
-      return redirect()->route('users.index');
+      Session::flash('success', 'Categoría guardada exitosamente!');
+
+      return redirect()->route('categories.index');
     }
 
     /**
@@ -77,8 +73,8 @@ class AdminControlController extends Controller
      */
     public function edit($id)
     {
-      $admin = Admin::find($id);
-      return view('admin.admins.edit')->withAdmin($admin);
+      $category = Category::find($id);
+      return view('admin.categories.edit')->withCategory($category);
     }
 
     /**
@@ -90,19 +86,17 @@ class AdminControlController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, array(
-        'name'  => 'required|max:255',
-        'email' => 'required|email'
+      $this->validate($request, array (
+        'name'       => 'required|max:255',
       ));
 
-      $admin = Admin::find($id);
-      $admin->name = $request->name;
-      $admin->email = $request->email;
-      $admin->save();
+      $category = Category::find($id);
+      $category->name = $request->name;
+      $category->save();
 
       Session::flash('success', 'Cambios guardados!');
 
-      return redirect()->route('users.index');
+      return redirect()->route('categories.index');
     }
 
     /**
@@ -113,10 +107,10 @@ class AdminControlController extends Controller
      */
     public function destroy($id)
     {
-      $admin = Admin::find($id);
-      $admin->delete();
+      $category = Category::find($id);
+      $category->delete();
 
-      Session::flash('success', 'Administrador Eliminado');
-      return redirect()->route('users.index');
+      Session::flash('success', 'La categoría ha sido eliminada!');
+      return redirect()->route('categories.index');
     }
 }

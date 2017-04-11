@@ -1,19 +1,27 @@
-@extends('main')
+@extends('dashboard')
 
-@section('title', '| View Post')
+@section('title', 'Publicaciones')
 
 @section('content')
   <div class="row">
     <div class="col-md-8">
-      <h1>{{ $post->title }}</h1>
-      <p class="lead">{{ $post->body }}</p>
+      <div class="card">
+        <div class="card-header" data-background-color="purple">
+          <h4 class="title">{{ $post->title }}</h4>
+        </div>
+        <div class="card-content">
+          <p class="lead">{{ $post->body }}</p>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-      <div class="card card-raised">
-        <div class="content">
+      <div class="card">
+        <div class="card-content">
           <dl>
             <label>URL:</label>
             <p><a href="{{ route('blog.single', $post->slug) }}">{{ route('blog.single', $post->slug) }}</a></p>
+            <label>Categoría:</label>
+            <p>{{ $post->category->name }}</p>
             <label>Creado en:</label>
             <p>{{ $post->created_at->format('M j, Y h:i A') }}</p>
             <label>Última Actualización:</label>

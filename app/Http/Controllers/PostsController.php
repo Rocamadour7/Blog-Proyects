@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use Session;
 use Carbon\Carbon;
 
@@ -13,7 +14,6 @@ class PostsController extends Controller
     public function __construct()
     {
       $this->middleware('auth:admin');
-      Carbon::setLocale('es');
     }
 
     /**
@@ -24,7 +24,7 @@ class PostsController extends Controller
     public function index()
     {
       $posts = Post::latest('id')->paginate(10);
-      return view('posts.index')->withPosts($posts);
+      return view('admin.posts.index')->withPosts($posts);
     }
 
     /**
@@ -34,7 +34,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-      return view('posts.create');
+      $categories = Category::all();
+      return view('admin.posts.create')->withCategories($categories);
     }
 
     /**
@@ -46,14 +47,16 @@ class PostsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, array (
-        'title' => 'required|max:255',
-        'body'  => 'required',
+        'title'       => 'required|max:255',
+        'category_id' => 'required|integer',
+        'body'        => 'required',
       ));
 
       $post = new Post;
-      $post->title = $request->title;
-      $post->body  = $request->body;
-      $post->slug  = str_slug($request->title, '-');
+      $post->title       = $request->title;
+      $post->category_id = $request->category_id;
+      $post->body        = $request->body;
+      $post->slug        = str_slug($request->title, '-');
       $post->save();
 
       Session::flash('success', 'Publicación guardada exitosamente!');
@@ -70,7 +73,7 @@ class PostsController extends Controller
     public function show($id)
     {
       $post = Post::find($id);
-      return view('posts.show')->withPost($post);
+      return view('admin.posts.show')->withPost($post);
     }
 
     /**
@@ -81,8 +84,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
+      $categories = Category::all();
       $post = Post::find($id);
-      return view('posts.edit')->withPost($post);
+      return view('admin.posts.edit')->withPost($post)->withCategories($categories);
     }
 
     /**
@@ -95,14 +99,16 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
       $this->validate($request, array (
-        'title' => 'required|max:255',
-        'body'  => 'required',
+        'title'       => 'required|max:255',
+        'category_id' => 'required|integer',
+        'body'        => 'required',
       ));
 
       $post = Post::find($id);
-      $post->title = $request->title;
-      $post->body  = $request->body;
-      $post->slug  = str_slug($request->title, '-');
+      $post->title       = $request->title;
+      $post->category_id = $request->category_id;
+      $post->body        = $request->body;
+      $post->slug        = str_slug($request->title, '-');
       $post->save();
 
       Session::flash('success', 'Cambios guardados!');

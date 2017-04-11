@@ -26,14 +26,14 @@
           <p>Usuarios</p>
         </a>
       </li>
-      <li>
-        <a href="#">
+      <li class="{{ Request::is('admin/posts') ? "active" : "" }}">
+        <a href="{{ route('posts.index') }}">
           <i class="material-icons">description</i>
-          <p>Posts</p>
+          <p>Publicaciones</p>
         </a>
       </li class="">
-      <li>
-        <a href="#">
+      <li class="{{ Request::is('admin/categories') ? "active" : "" }}">
+        <a href="{{ route('categories.index') }}">
           <i class="material-icons">local_offer</i>
           <p>Categorías</p>
         </a>
