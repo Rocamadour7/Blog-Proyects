@@ -21,6 +21,9 @@ Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single')->wher
 
 Auth::routes();
 
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('oauth');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('oauthCallback');
+
 Route::get('/home', 'HomeController@index');
 
 Route::prefix('admin')->group(function()

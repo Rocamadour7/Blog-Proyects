@@ -39,6 +39,7 @@
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Email</th>
+                  <th>Proveedor</th>
                   <th>Creado</th>
                   <th></th>
                 </thead>
@@ -48,6 +49,7 @@
                       <th>{{ $user->id }}</th>
                       <td>{{ $user->name }}</td>
                       <td>{{ $user->email }}</td>
+                      <td>{{ $user->provider }}</td>
                       <td>{{ $user->created_at->format('M j, Y h:i A') }}</td>
                       <td class="btn-column">
                         <form method="POST" action="{{ route('users.edit', $user->id) }}">
