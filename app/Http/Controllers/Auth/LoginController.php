@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
-use Auth;
+use App\SocialProvider;
 use Socialite;
 
 class LoginController extends Controller
@@ -57,31 +57,30 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
-
-        $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::login($authUser, true);
-        return redirect($this->redirectTo);
-    }
-
-    /**
-     * If a user has registered before using social auth, return the user
-     * else, create a new user object.
-     * @param  $user Socialite user object
-     * @param $provider Social auth provider
-     * @return  User
-     */
-    public function findOrCreateUser($user, $provider)
-    {
-        $authUser = User::where('provider_id', $user->id)->first();
-        if ($authUser) {
-            return $authUser;
+        try
+        {
+          $socialUser = Socialite::driver($provider)->user();
         }
-        return User::create([
-            'name'     => $user->name,
-            'email'    => $user->email,
-            'provider' => $provider,
-            'provider_id' => $user->id
-        ]);
+
+        catch(\Exception $e)
+        {
+          return redirect('/');
+        }
+
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            $user = User::firstOrCreate(
+              ['email' => $socialUser->getEmail()],
+              ['name' => $socialUser->getName()]
+            );
+            $user->SocialProvider()->create(
+              ['provider_id' => $socialUser->getId(), 'provider' => $provider]
+            );
+        }
+        else
+          $user = $socialProvider->user;
+        auth()->login($user);
+        return redirect('/home');
     }
 }

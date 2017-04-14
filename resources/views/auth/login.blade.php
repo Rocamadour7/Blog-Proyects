@@ -62,9 +62,9 @@
 
                         <div class="form-group">
                           <div class="col-md-6 col-md-offset-4">
-                            <a href="{{ route('oauth', 'github') }}" class="btn btn-github">Github</a>
-                            <a href="{{ route('oauth', 'twitter') }}" class="btn btn-twitter">Twitter</a>
-                            <a href="{{ route('oauth', 'facebook') }}" class="btn btn-facebook">Facebook</a>
+                            <a href="{{ route('oauth', 'Facebook') }}" class="btn btn-Facebook">Facebook</a>
+                            <a href="{{ route('oauth', 'google') }}" class="btn btn-google">Google</a>
+                            <a href="{{ route('oauth', 'Github') }}" class="btn btn-Github">Github</a>
                           </div>
                         </div>
 
