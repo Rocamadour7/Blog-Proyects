@@ -7,12 +7,8 @@ use App\Category;
 use App\Tag;
 use Session;
 
-class CategoriesController extends Controller
+class TagsController extends Controller
 {
-    public function __construct() {
-      $this->middleware('auth:admin');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -32,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-      return view('admin.categories.create');
+      return view('admin.tags.create');
     }
 
     /**
@@ -47,11 +43,11 @@ class CategoriesController extends Controller
         'name'       => 'required|max:255',
       ));
 
-      $category = new Category;
-      $category->name = $request->name;
-      $category->save();
+      $tag = new Tag;
+      $tag->name = $request->name;
+      $tag->save();
 
-      Session::flash('success', 'Categoría guardada exitosamente!');
+      Session::flash('success', 'Etiqueta guardada exitosamente!');
 
       return redirect()->route('categories.index');
     }
@@ -75,8 +71,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-      $category = Category::find($id);
-      return view('admin.categories.edit')->withCategory($category);
+      $tag = Tag::find($id);
+      return view('admin.tags.edit')->withTag($tag);
     }
 
     /**
@@ -92,9 +88,9 @@ class CategoriesController extends Controller
         'name'       => 'required|max:255',
       ));
 
-      $category = Category::find($id);
-      $category->name = $request->name;
-      $category->save();
+      $tag = Tag::find($id);
+      $tag->name = $request->name;
+      $tag->save();
 
       Session::flash('success', 'Cambios guardados!');
 
@@ -109,10 +105,11 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-      $category = Category::find($id);
-      $category->delete();
+      $tag = Tag::find($id);
+      $tag->posts()->detach();
+      $tag->delete();
 
-      Session::flash('success', 'La categoría ha sido eliminada!');
+      Session::flash('success', 'La etiqueta ha sido eliminada!');
       return redirect()->route('categories.index');
     }
 }

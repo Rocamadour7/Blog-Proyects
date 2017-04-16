@@ -11,6 +11,12 @@
         </div>
         <div class="card-content">
           <p class="lead">{{ $post->body }}</p>
+          <hr>
+          <div class="labels">
+            @foreach ($post->tags as $tag)
+              <span class="label label-info">{{ $tag->name }}</span>
+            @endforeach
+          </div>
         </div>
       </div>
     </div>

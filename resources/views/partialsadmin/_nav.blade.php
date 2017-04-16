@@ -35,7 +35,7 @@
       <li class="{{ Request::is('admin/categories') ? "active" : "" }}">
         <a href="{{ route('categories.index') }}">
           <i class="material-icons">local_offer</i>
-          <p>Categorías</p>
+          <p>Categorías y Etiquetas</p>
         </a>
       </li>
     </ul>

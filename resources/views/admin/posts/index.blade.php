@@ -81,7 +81,7 @@
           </div>
           <div class="modal-footer">
             <div class="btn-column">
-              <button type="button" class="btn btn-primary cancel-btn" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-white cancel-btn" data-dismiss="modal">Cancelar</button>
               <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
                 <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger">Eliminar</button>
                 {{ csrf_field() }}

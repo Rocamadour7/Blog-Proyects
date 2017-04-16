@@ -7,11 +7,11 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header" data-background-color="purple">
-          <h4 class="title">Crear Categoría</h4>
+          <h4 class="title">Crear Etiqueta</h4>
           <p class="category">Llena todos los espacios</p>
         </div>
         <div class="card-content">
-          <form action="{{ route('categories.store') }}" method="POST" data-toggle="validator" role="form">
+          <form action="{{ route('tags.store') }}" method="POST" data-toggle="validator" role="form">
             <div class="form-group label-floating is-empty">
               <label for="name" class="control-label">Nombre</label>
               <input type="text" name="name" class="form-control" required maxlength="255" autofocus>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 use Session;
 use Carbon\Carbon;
 
@@ -35,7 +36,8 @@ class PostsController extends Controller
     public function create()
     {
       $categories = Category::all();
-      return view('admin.posts.create')->withCategories($categories);
+      $tags = Tag::all();
+      return view('admin.posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -58,6 +60,7 @@ class PostsController extends Controller
       $post->body        = $request->body;
       $post->slug        = str_slug($request->title, '-');
       $post->save();
+      $post->tags()->sync($request->tags, false);
 
       Session::flash('success', 'Publicación guardada exitosamente!');
 
@@ -86,7 +89,9 @@ class PostsController extends Controller
     {
       $categories = Category::all();
       $post = Post::find($id);
-      return view('admin.posts.edit')->withPost($post)->withCategories($categories);
+      $tags = Tag::all();
+
+      return view('admin.posts.edit')->withPost($post)->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -111,6 +116,12 @@ class PostsController extends Controller
       $post->slug        = str_slug($request->title, '-');
       $post->save();
 
+      if (isset($request->tags)) {
+        $post->tags()->sync($request->tags);
+      } else {
+        $post->tags()->sync(array());
+      }
+
       Session::flash('success', 'Cambios guardados!');
 
       return redirect()->route('posts.show', $post->id);
@@ -125,6 +136,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
       $post = Post::find($id);
+      $post->tags()->detach();
       $post->delete();
 
       Session::flash('success', 'La publicación ha sido eliminada!');

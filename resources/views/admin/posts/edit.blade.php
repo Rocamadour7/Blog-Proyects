@@ -2,6 +2,10 @@
 
 @section('title', 'Publicaciones')
 
+@section('stylesheets')
+  <link rel="stylesheet" href="/css/select2.min.css">
+@endsection
+
 @section('content')
   <div class="row">
     <div class="col-md-12">
@@ -10,7 +14,7 @@
           <h4>Modificar Publicación</h4>
         </div>
         <div class="card-content">
-          <form method="POST" action="{{ route('posts.store') }}" data-toggle="validator" role="form">
+          <form method="POST" action="{{ route('posts.update', $post->id) }}" data-toggle="validator" role="form">
             <div class="form-group label-floating">
               <label for="title" class="control-label">Título:</label>
               <input type="text" id="title" name="title" class="form-control input-lg" required maxlength="255" value="{{ $post->title }}" autofocus>
@@ -30,6 +34,14 @@
               <label for="body" class="control-label">Contenido:</label>
               <textarea id="body" name="body" rows="10" class="form-control" required>{{ $post->body }}</textarea>
             </div>
+            <div class="form-group">
+              <label for="tags">Etiquetas:</label>
+              <select class="form-control tagSelect" name="tags[]" multiple="multiple">
+                @foreach ($tags as $tag)
+                  <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                @endforeach
+              </select>
+            </div>
             <div class="col-md-6">
               <a href="{{ route('posts.index') }}" class="btn btn-danger btn-lg btn-block btn-simple">Cancel</a>
             </div>
@@ -37,6 +49,7 @@
               <input type="submit" value="Guardar Cambios" class="btn btn-success btn-lg btn-block btn-simple">
             </div>
             {{ csrf_field() }}
+            {{ method_field('PUT') }}
           </form>
         </div>
       </div>
@@ -46,4 +59,9 @@
 
 @section('scripts')
   <script src="/js/validator.min.js"></script>
+  <script src="/js/select2.min.js"></script>
+  <script type="text/javascript">
+    $('.tagSelect').select2();
+    $('.tagSelect').select2().val({!! json_encode($post->tags->pluck('id')) !!}).trigger('change');
+  </script>
 @endsection

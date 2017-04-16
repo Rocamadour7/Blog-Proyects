@@ -138,7 +138,7 @@
           </div>
           <div class="modal-footer">
             <div class="btn-column">
-              <button type="button" class="btn btn-primary cancel-btn" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-white cancel-btn" data-dismiss="modal">Cancelar</button>
               <form method="POST" action="{{ route('users.destroy', $user->id) }}">
                 <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger">Eliminar</button>
                 {{ csrf_field() }}
@@ -164,7 +164,7 @@
           </div>
           <div class="modal-footer">
             <div class="btn-column">
-              <button type="button" class="btn btn-primary cancel-btn" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-white cancel-btn" data-dismiss="modal">Cancelar</button>
               <form method="POST" action="{{ route('admins.destroy', $admin->id) }}">
                 <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger">Eliminar</button>
                 {{ csrf_field() }}

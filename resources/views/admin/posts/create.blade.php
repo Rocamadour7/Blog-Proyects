@@ -2,6 +2,10 @@
 
 @section('title', 'Publicaciones')
 
+@section('stylesheets')
+  <link rel="stylesheet" href="/css/select2.min.css">
+@endsection
+
 @section('content')
   <div class="row">
     <div class="col-md-12">
@@ -29,6 +33,14 @@
               <label for="body" class="control-label">Contenido:</label>
               <textarea id="body" name="body" rows="10" class="form-control" required></textarea>
             </div>
+            <div class="form-group">
+              <label for="tags">Etiquetas:</label>
+              <select class="form-control tagSelect" name="tags[]" multiple="multiple">
+                @foreach ($tags as $tag)
+                  <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                @endforeach
+              </select>
+            </div>
             <div class="col-md-6">
               <a href="{{ route('posts.index') }}" class="btn btn-danger btn-lg btn-block btn-simple">Cancel</a>
             </div>
@@ -45,4 +57,8 @@
 
 @section('scripts')
   <script src="/js/validator.min.js"></script>
+  <script src="/js/select2.min.js"></script>
+  <script type="text/javascript">
+    $('.tagSelect').select2();
+  </script>
 @endsection

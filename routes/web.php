@@ -32,6 +32,7 @@ Route::prefix('admin')->group(function()
   Route::resource('admins', 'AdminControlController', ['except' => ['show']]);
   Route::resource('posts', 'PostsController');
   Route::resource('categories', 'CategoriesController', ['except' => ['show']]);
+  Route::resource('tags', 'TagsController', ['except' => ['show']]);
   Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
   Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::get('/', 'AdminController@getDashboard')->name('admin.dashboard');

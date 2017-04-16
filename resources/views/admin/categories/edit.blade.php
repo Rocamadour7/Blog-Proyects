@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('title', 'Categorías')
+@section('title', 'Categorías y Etiquetas')
 
 @section('content')
   <div class="row">
@@ -11,7 +11,7 @@
           <p class="category">Llena todos los espacios</p>
         </div>
         <div class="card-content">
-          <form action="{{ route('categories.store') }}" method="POST" data-toggle="validator" role="form">
+          <form action="{{ route('categories.update', $category->id) }}" method="POST" data-toggle="validator" role="form">
             <div class="form-group label-floating">
               <label for="name" class="control-label">Nombre</label>
               <input type="text" name="name" class="form-control" required maxlength="255" value="{{ $category->name }}" autofocus>
@@ -23,6 +23,7 @@
               <input type="submit" value="Guardar Cambios" class="btn btn-success btn-lg btn-block btn-simple">
             </div>
             {{ csrf_field() }}
+            {{ method_field('PUT') }}
           </form>
         </div>
       </div>
