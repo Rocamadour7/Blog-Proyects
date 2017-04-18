@@ -16,6 +16,7 @@ Route::get('/', 'PagesController@getHome');
 Route::get('AcercaDeMi', 'PagesController@getAbout');
 
 Route::get('Contacto', 'PagesController@getContact');
+Route::post('Contacto', 'PagesController@postContact');
 
 Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
 

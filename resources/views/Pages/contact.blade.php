@@ -14,17 +14,21 @@
           <h4>Contáctame</h4>
         </div>
         <div class="content">
-          <form data-toggle="validator" role="form">
-            <div class="form-group label-floating">
+          <form method="POST" action="{{ url('Contacto') }}" data-toggle="validator" role="form">
+            <div class="form-group label-floating is-empty">
+              <label for="name" class="control-label">Nombre:</label>
+              <input type="text" class="form-control" name="name" id="name" maxlength="120" required>
+            </div>
+            <div class="form-group label-floating is-empty">
               <label for="email" class="control-label">Email:</label>
               <input type="email" class="form-control" name="email" id="email" data-error="Email Inválido" required>
               <div class="help-block with-errors"></div>
             </div>
-            <div class="form-group label-floating">
+            <div class="form-group label-floating is-empty">
               <label for="subject" class="control-label">Asunto:</label>
               <input type="text" class="form-control" name="subject" id="subject" maxlength="120" required>
             </div>
-            <div class="form-group label-floating">
+            <div class="form-group label-floating is-empty">
               <label for="message" class="control-label">Mensaje:</label>
               <textarea class="form-control" name="message" id="message" rows="4" required></textarea>
             </div>
