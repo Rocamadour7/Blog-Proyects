@@ -1,11 +1,9 @@
 .jumbotron {
   background-color: #EEE;
   background-size: cover;
-  height: 60vh;
+  height: 40vh;
 }
 
 .img-container {
-  width: 40%;
-  margin-right: 10px;
-  margin-bottom: 10px;
+
 }

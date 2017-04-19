@@ -3,6 +3,27 @@ html {
   min-height: 100%;
 }
 
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+
+.main {
+  background: transparent;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.post-info {
+  margin-top: 10px;
+}
+
 .footer {
   background-color: #EEE;
   position: absolute;

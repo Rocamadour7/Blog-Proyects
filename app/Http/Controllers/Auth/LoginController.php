@@ -28,7 +28,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
+
+    protected function redirectTo()
+    {
+      return back();
+    }
 
     /**
      * Create a new controller instance.
@@ -81,6 +86,6 @@ class LoginController extends Controller
         else
           $user = $socialProvider->user;
         auth()->login($user);
-        return redirect('/home');
+        return back();
     }
 }

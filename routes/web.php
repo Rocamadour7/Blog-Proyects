@@ -19,6 +19,7 @@ Route::get('Contacto', 'PagesController@getContact');
 Route::post('Contacto', 'PagesController@postContact');
 
 Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
+Route::post('comments/{post_id}/{user_id}', 'CommentsController@store')->name('comments.store');
 
 Auth::routes();
 

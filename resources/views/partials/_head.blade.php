@@ -5,6 +5,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
 <link rel="stylesheet" href="/css/app.css">
-<link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/material-kit.css">
+<link rel="stylesheet" href="/css/main.css">
 @yield('stylesheets')

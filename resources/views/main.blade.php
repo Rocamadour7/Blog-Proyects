@@ -11,15 +11,23 @@
 
   @include('partials._alerts')
 
-  @yield('jumbotron')
+  <div class="wrapper">
+    <div class="header">
 
-  <section id="main-container" class="container">
+      @include('partials._header')
 
-    @yield('content')
+    </div>
+    <div class="main">
+      <div class="container">
 
-  </section>
+        @yield('content')
 
-<!--  @include('partials._footer') Trabajar en el footer para que entre en el Material Design -->
+      </div>
+    </div>
+
+    @include('partials._footer')
+
+  </div>
 
   @include('partials._scripts')
 

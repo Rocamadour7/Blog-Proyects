@@ -16,7 +16,7 @@ class PagesController extends Controller
   }
 
   public function getHome () {
-    $posts = Post::latest()->simplePaginate(5);
+    $posts = Post::latest()->simplePaginate(9);
     return view('pages.home')->withPosts($posts);
   }
 
