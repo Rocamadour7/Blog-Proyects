@@ -75,9 +75,20 @@ class LoginController extends Controller
         $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
         if(!$socialProvider)
         {
+            if($provider == "facebook")
+            {
+              $avatar = $socialUser->getAvatar();
+              $avatar = str_replace("?type=normal", "", $avatar);
+            } else {
+              $avatar = $socialUser->getAvatar();
+            }
+
             $user = User::firstOrCreate(
               ['email' => $socialUser->getEmail()],
-              ['name' => $socialUser->getName()]
+              [
+                'name' => $socialUser->getName(),
+                'avatar' => $avatar
+              ]
             );
             $user->SocialProvider()->create(
               ['provider_id' => $socialUser->getId(), 'provider' => $provider]

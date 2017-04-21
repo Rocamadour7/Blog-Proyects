@@ -16,7 +16,7 @@ class CreateSocialProvidersTable extends Migration
         Schema::create('social_providers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->string('provider');
             $table->string('provider_id')->unique();
             $table->timestamps();

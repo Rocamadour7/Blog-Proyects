@@ -23,16 +23,17 @@
       </div>
       <div class="card">
         <div class="content">
-          <h4>Comentarios ({{ $post->comments->count() }})</h4>
+          <h4><span class="glyphicon glyphicon-comment"></span> Comentarios ({{ $post->comments->count() }})</h4>
           <hr>
           @foreach ($post->comments as $comment)
             <div class="media">
               <div class="media-left">
-                <img src="http://www.sessionlogs.com/media/icons/defaultIcon.png" alt="Avatar" class="media-object">
+                <img src="{{ $comment->user->avatar }}" alt="Avatar" class="media-object">
               </div>
               <div class="media-body">
                 <div class="media-heading">
                   <h6>{{ $comment->user->name }}</h6>
+                  <span class="text-muted">{{ $comment->created_at->diffForHumans() }}</span>
                   <p>{{ $comment->content }}</p>
                 </div>
               </div>

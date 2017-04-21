@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
+use App\SocialProvider;
 use Session;
 
 class UserControlController extends Controller

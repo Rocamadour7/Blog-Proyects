@@ -8,8 +8,29 @@ html {
   border-radius: 0;
 }
 
+.user-nav a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.user-nav img {
+  position: initial;
+  left: -25px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
 .alert {
   margin-bottom: 0;
+}
+
+.jumbotron {
+  background-image: url('/images/sai-kiran-anagani-61187.jpg');
+  background-size: cover;
+  height: 20vh;
+  color: white;
 }
 
 .main {
@@ -22,6 +43,16 @@ html {
 
 .post-info {
   margin-top: 10px;
+}
+
+.media h6 {
+  margin: 0px;
+}
+
+.media img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .footer {
