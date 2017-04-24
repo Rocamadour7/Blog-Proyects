@@ -28,7 +28,7 @@
               <tr>
                 <th>{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
-                <td>{{ str_limit($post->body, 50) }}</td>
+                <td>{{ str_limit(strip_tags($post->body), 50) }}</td>
                 <td>{{ $post->category->name }}</td>
                 <td>{{ $post->created_at->format('M j, Y h:i A') }}</td>
                 <td class="btn-column">

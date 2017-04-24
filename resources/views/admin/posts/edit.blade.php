@@ -4,6 +4,15 @@
 
 @section('stylesheets')
   <link rel="stylesheet" href="/css/select2.min.css">
+  <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=xcjiqtjel1jbicvun8jwigz55wbv21snsd0dhhbg4qn4s49d"></script>
+  <script>
+    tinymce.init({
+      selector:'textarea',
+      plugins: 'link',
+      default_link_target: '_blank',
+      menubar: false
+    });
+  </script>
 @endsection
 
 @section('content')
@@ -32,7 +41,7 @@
             </div>
             <div class="form-group label-floating">
               <label for="body" class="control-label">Contenido:</label>
-              <textarea id="body" name="body" rows="10" class="form-control" required>{{ $post->body }}</textarea>
+              <textarea id="body" name="body" rows="10" class="form-control">{{ $post->body }}</textarea>
             </div>
             <div class="form-group">
               <label for="tags">Etiquetas:</label>

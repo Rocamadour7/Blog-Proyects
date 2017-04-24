@@ -10,7 +10,7 @@
           <h4 class="title">{{ $post->title }}</h4>
         </div>
         <div class="card-content">
-          <p class="lead">{{ $post->body }}</p>
+          <p class="lead">{!! $post->body !!}</p>
           <hr>
           <div class="labels">
             @foreach ($post->tags as $tag)

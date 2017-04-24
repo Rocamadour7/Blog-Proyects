@@ -18,7 +18,7 @@
           </div>
           <hr>
           <h3>{{ $post->title }}</h3>
-          <p class="text-justify">{{ $post->body }}</p>
+          <p class="text-justify">{!! $post->body !!}</p>
         </div>
       </div>
       <div class="card">
