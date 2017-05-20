@@ -26,7 +26,7 @@
         <div class="card-content">
           <dl>
             <label>URL:</label>
-            <p><a href="{{ route('blog.single', $post->slug) }}">{{ route('blog.single', $post->slug) }}</a></p>
+            <p><a href="{{ route('blog.single', $post->slug) }}" target="_blank">{{ route('blog.single', $post->slug) }}</a></p>
             <label>Categoría:</label>
             <p>{{ $post->category->name }}</p>
             <label>Creado en:</label>

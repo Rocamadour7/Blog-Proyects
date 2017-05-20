@@ -67,7 +67,7 @@ class PostsController extends Controller
         $image = $request->file('image');
         $filename = time().'.'.$image->getClientOriginalExtension();
         $location = public_path('images/posts/'.$filename);
-        Image::make($image)->resize(800, 400)->save($location);
+        Image::make($image)->resize(1600, 800)->save($location);
 
         $post->imagePath = $filename;
       }
@@ -133,7 +133,7 @@ class PostsController extends Controller
         $image = $request->file('image');
         $filename = time().'.'.$image->getClientOriginalExtension();
         $location = public_path('images/posts/'.$filename);
-        Image::make($image)->resize(800, 400)->save($location);
+        Image::make($image)->resize(1600, 800)->save($location);
         $oldimage = $post->imagePath;
 
         $post->imagePath = $filename;

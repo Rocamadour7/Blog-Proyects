@@ -6,4 +6,5 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/material-kit.css">
+<link rel="stylesheet" href="/css/navbar.css">
 @yield('stylesheets')

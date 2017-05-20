@@ -2,15 +2,19 @@
 
 @section('title', '| '.$post->title)
 
+@section('stylesheets')
+  <link rel="stylesheet" href="/css/single.css">
+@endsection
+
 @section('content')
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="content">
           <img src="{{ asset('/images/posts/'.$post->imagePath) }}" alt="{{ $post->title }}" class="img-responsive">
           <div class="row post-info">
             <div class="col-xs-6">
-              <span class="label label-warning text-left">{{ $post->category->name }}</span>
+              <span class="label label-info text-left">{{ $post->category->name }}</span>
             </div>
             <div class="col-xs-6">
               <p class="text-muted text-right">{{ $post->created_at->diffForHumans() }}</p>
@@ -19,10 +23,14 @@
           <hr>
           <h3>{{ $post->title }}</h3>
           <p class="text-justify">{!! $post->body !!}</p>
+          <hr>
+          @foreach ($post->tags as $tag)
+            <span class="label label-danger text-left">{{ $tag->name }}</span>
+          @endforeach
         </div>
       </div>
       <div class="card">
-        <div class="content">
+        <div class="content" id="comments">
           <h4><span class="glyphicon glyphicon-comment"></span> Comentarios ({{ $post->comments->count() }})</h4>
           <hr>
           @foreach ($post->comments as $comment)

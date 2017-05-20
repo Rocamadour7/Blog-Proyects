@@ -1,0 +1,24 @@
+.wrapper > .header {
+    min-height: 0px;
+}
+
+.main {
+    background-color: transparent;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.post-info {
+    margin-top: 5px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    margin-top: 0;
+}

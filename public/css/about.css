@@ -32,7 +32,7 @@
 
 .description {
   margin: 30px auto 0;
-  max-width: 800px;
+  max-width: 750px;
   color: #3C4858;
 }
 
@@ -42,4 +42,10 @@
 
 blockquote {
   border: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
 }

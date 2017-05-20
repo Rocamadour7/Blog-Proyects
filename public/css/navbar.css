@@ -1,0 +1,18 @@
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.user-nav a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.user-nav img {
+  position: initial;
+  left: -25px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}

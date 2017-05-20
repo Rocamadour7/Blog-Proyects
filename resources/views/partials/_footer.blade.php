@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
   <div class="container">
     <div class="copyright pull-right">
       <p>

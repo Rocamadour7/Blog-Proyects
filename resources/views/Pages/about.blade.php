@@ -11,9 +11,9 @@
 @endsection
 
 @section('content')
-  <div class="main main-raised">
-    <div class="profile-content">
-      <div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="main main-raised">
+      <div class="profile-content">
         <div class="row">
           <div class="profile">
             <div class="avatar">
@@ -21,7 +21,7 @@
             </div>
             <div class="name">
               <h3 class="title">Luis Molina</h3>
-							<h6>Estudiante de Sistemas - Desarrollador Web - Desarrollador Backend</h6>
+              <h6>Estudiante de Sistemas - Desarrollador Web - Desarrollador Backend</h6>
             </div>
           </div>
           <div class="description text-center">

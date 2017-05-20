@@ -14,14 +14,6 @@
       <ul class="nav navbar-nav">
         <li><a href="/">Inicio</a></li>
         <li><a href="/AcercaDeMi">Acerca de mi</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Prácticas</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Extras</a></li>
-          </ul>
-        </li>
         <li><a href="/Contacto">Contacto</a></li>
       </ul>
 

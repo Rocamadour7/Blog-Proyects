@@ -28,7 +28,7 @@
             <p class="post-content text-justify">{{ str_limit(strip_tags($post->body), 50) }}</p>
             <div class="button-container">
               <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Leer Más</a>
-              <a href="#" class="btn btn-success">Comentarios <span class="badge">{{ $post->comments->count() }}</span></a>
+              <a href="{{ route('blog.single', $post->slug) }}#comments" class="btn btn-success">Comentarios <span class="badge">{{ $post->comments->count() }}</span></a>
             </div>
           </div>
         </div>
