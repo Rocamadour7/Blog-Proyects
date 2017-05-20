@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
               <label for="image" class="control-label">Imagen:</label>
-              <input type="file" name="image" class="form-control">
+              <input type="file" name="image" class="form-control" required>
             </div>
             <div class="form-group label-floating is-empty">
               <label for="body" class="control-label">Contenido:</label>

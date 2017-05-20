@@ -3,6 +3,7 @@
 @section('title', 'Publicaciones')
 
 @section('stylesheets')
+  <link rel="stylesheet" href="/css/form.css">
   <link rel="stylesheet" href="/css/select2.min.css">
   <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=xcjiqtjel1jbicvun8jwigz55wbv21snsd0dhhbg4qn4s49d"></script>
   <script>
@@ -23,7 +24,7 @@
           <h4>Modificar Publicación</h4>
         </div>
         <div class="card-content">
-          <form method="POST" action="{{ route('posts.update', $post->id) }}" data-toggle="validator" role="form">
+          <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data" data-toggle="validator" role="form">
             <div class="form-group label-floating">
               <label for="title" class="control-label">Título:</label>
               <input type="text" id="title" name="title" class="form-control input-lg" required maxlength="255" value="{{ $post->title }}" autofocus>
@@ -38,6 +39,10 @@
                   </option>
                 @endforeach
               </select>
+            </div>
+            <div class="form-group">
+              <label for="image" class="control-label">Imagen:</label>
+              <input type="file" name="image" class="form-control">
             </div>
             <div class="form-group label-floating">
               <label for="body" class="control-label">Contenido:</label>

@@ -9,6 +9,7 @@ use App\Tag;
 use Session;
 use Carbon\Carbon;
 use Image;
+use File;
 
 class PostsController extends Controller
 {
@@ -53,6 +54,7 @@ class PostsController extends Controller
         'title'       => 'required|max:255',
         'category_id' => 'required|integer',
         'body'        => 'required',
+        'image'       => 'required|image'
       ));
 
       $post = new Post;
@@ -64,7 +66,7 @@ class PostsController extends Controller
       if ($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = time().'.'.$image->getClientOriginalExtension();
-        $location = public_path('images/'.$filename);
+        $location = public_path('images/posts/'.$filename);
         Image::make($image)->resize(800, 400)->save($location);
 
         $post->imagePath = $filename;
@@ -118,6 +120,7 @@ class PostsController extends Controller
         'title'       => 'required|max:255',
         'category_id' => 'required|integer',
         'body'        => 'required',
+        'image'       => 'image'
       ));
 
       $post = Post::find($id);
@@ -125,6 +128,19 @@ class PostsController extends Controller
       $post->category_id = $request->category_id;
       $post->body        = $request->body;
       $post->slug        = str_slug($request->title, '-');
+
+      if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time().'.'.$image->getClientOriginalExtension();
+        $location = public_path('images/posts/'.$filename);
+        Image::make($image)->resize(800, 400)->save($location);
+        $oldimage = $post->imagePath;
+
+        $post->imagePath = $filename;
+
+        File::delete(public_path('images/posts/'.$oldimage));
+      }
+
       $post->save();
 
       if (isset($request->tags)) {
@@ -148,6 +164,7 @@ class PostsController extends Controller
     {
       $post = Post::find($id);
       $post->tags()->detach();
+      File::delete(public_path('images/posts/'.$post->imagePath));
       $post->delete();
 
       Session::flash('success', 'La publicación ha sido eliminada!');
