@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand">Luis Molina</a>
+      <a href="#" class="navbar-brand" style="font-weight: 500;">BlogMolina.mx</a>
     </div>
 
     <div class="collapse navbar-collapse" id="mainNav">
@@ -28,8 +28,8 @@
       <ul class="nav navbar-nav navbar-right">
           <!-- Authentication Links -->
           @if (Auth::guest())
-              <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Register</a></li>
+              <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+              <li><a href="{{ route('register') }}">Registrar</a></li>
           @else
               <li class="dropdown user-nav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

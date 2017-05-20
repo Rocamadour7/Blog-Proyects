@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple">
+<div class="sidebar" data-color="purple" data-image="/images/sidebar.jpg">
 
 <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
@@ -8,7 +8,7 @@
 
   <div class="logo">
     <a href="/" class="simple-text" target="_blank">
-      Luis Molina
+      BlogMolina.mx
     </a>
   </div>
 

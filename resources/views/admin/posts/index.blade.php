@@ -16,7 +16,6 @@
       <div class="card-content table-responsive">
         <table class="table table-hover table-condensed">
           <thead class="text-primary">
-            <th>#</th>
             <th>Título</th>
             <th>Cuerpo</th>
             <th>Categoría</th>
@@ -26,7 +25,6 @@
           <tbody>
             @foreach ($posts->all() as $post)
               <tr>
-                <th>{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ str_limit(strip_tags($post->body), 50) }}</td>
                 <td>{{ $post->category->name }}</td>

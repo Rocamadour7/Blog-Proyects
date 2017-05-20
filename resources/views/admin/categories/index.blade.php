@@ -17,14 +17,12 @@
         <div class="card-content table-responsive">
           <table class="table table-hover table-condensed">
             <thead class="text-primary">
-              <th>#</th>
               <th>Nombre</th>
               <th></th>
             </thead>
             <tbody>
               @foreach ($categories->all() as $category)
                 <tr>
-                  <th>{{ $category->id }}</th>
                   <td>{{ $category->name }}</td>
                   <td class="btn-column">
                     <form method="POST" action="{{ route('categories.edit', $category->id) }}">
@@ -63,14 +61,12 @@
         <div class="card-content table-responsive">
           <table class="table table-hover table-condensed">
             <thead class="text-primary">
-              <th>#</th>
               <th>Nombre</th>
               <th></th>
             </thead>
             <tbody>
               @foreach ($tags->all() as $tag)
                 <tr>
-                  <th>{{ $tag->id }}</th>
                   <td>{{ $tag->name }}</td>
                   <td class="btn-column">
                     <form method="POST" action="{{ route('tags.edit', $tag->id) }}">

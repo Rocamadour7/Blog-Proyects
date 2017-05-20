@@ -14,15 +14,13 @@
   <div class="wrapper">
     <div class="header">
 
-      @include('partials._header')
+      @yield('header')
 
     </div>
     <div class="main">
-      <div class="container">
 
         @yield('content')
-
-      </div>
+        
     </div>
 
     @include('partials._footer')

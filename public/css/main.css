@@ -27,7 +27,7 @@ html {
 }
 
 .jumbotron {
-  background-image: url('/images/sai-kiran-anagani-61187.jpg');
+  background-image: url('/images/banner.png');
   background-size: cover;
   height: 20vh;
   color: white;
@@ -53,6 +53,10 @@ html {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+.pagination>li>span, .pagination>li>a {
+  color: #3C4858 !important;
 }
 
 .footer {

@@ -1,77 +1,47 @@
-@extends('layouts.app')
+@extends('auth')
+
+@section('title', '| Inicia Sesión')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+    <form class="form" role="form" method="POST" action="{{ route('login') }}" data-toggle="validator" role="form">
+        {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <div class="col-md-6 col-md-offset-4">
-                            <a href="{{ route('oauth', 'Facebook') }}" class="btn btn-Facebook">Facebook</a>
-                            <a href="{{ route('oauth', 'google') }}" class="btn btn-google">Google</a>
-                            <a href="{{ route('oauth', 'Github') }}" class="btn btn-Github">Github</a>
-                          </div>
-                        </div>
-
-                    </form>
-                </div>
+        <div class="header header-primary text-center">
+            <h4>Iniciar Sesión</h4>
+            <div class="social-line">
+                <a href="{{ route('oauth', 'facebook') }}" class="btn btn-simple btn-just-icon">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a href="{{ route('oauth', 'google') }}" class="btn btn-simple btn-just-icon">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                <a href="{{ route('oauth', 'github') }}" class="btn btn-simple btn-just-icon">
+                    <i class="fa fa-github"></i>
+                </a>
             </div>
         </div>
-    </div>
-</div>
+
+        <p class="text-divider">O introduce tus datos</p>
+        <div class="content">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="material-icons">email</i>
+                </span>
+                <input type="email" class="form-control" placeholder="Email" name="email" required maxlength="255">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="material-icons">lock_outline</i>
+                </span>
+                <input type="password" class="form-control" placeholder="Contraseña" name="password" required data-minlength="6">
+            </div>
+        </div>
+        <div class="footer text-center">
+            <button type="submit" class="btn btn-simple btn-primary btn-lg">Inicia Sesión</a>
+        </div>
+    </form>
+@endsection
+
+@section('scripts')
+    <script src="/js/validator.min.js"></script>
 @endsection

@@ -1,0 +1,11 @@
+.wrapper > .header {
+    min-height: 250px;
+}
+
+h4 {
+    font-weight: 500;
+}
+
+label.control-label {
+    color: #3C4858 !important;
+}
