@@ -10,6 +10,7 @@
           <h4 class="title">{{ $post->title }}</h4>
         </div>
         <div class="card-content">
+          <img src="{{ asset('/images/'.$post->imagePath) }}" alt="{{ $post->title }}">
           <p class="lead">{!! $post->body !!}</p>
           <hr>
           <div class="labels">

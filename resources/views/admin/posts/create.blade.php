@@ -3,6 +3,7 @@
 @section('title', 'Publicaciones')
 
 @section('stylesheets')
+  <link rel="stylesheet" href="/css/form.css">
   <link rel="stylesheet" href="/css/select2.min.css">
   <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=xcjiqtjel1jbicvun8jwigz55wbv21snsd0dhhbg4qn4s49d"></script>
   <script>
@@ -24,7 +25,7 @@
           <p class="category">Llena todos los espacios</p>
         </div>
         <div class="card-content">
-          <form method="POST" action="{{ route('posts.store') }}" data-toggle="validator" role="form">
+          <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data" data-toggle="validator" role="form">
             <div class="form-group label-floating is-empty">
               <label for="title" class="control-label">Título:</label>
               <input type="text" id="title" name="title" class="form-control input-lg" required maxlength="255" autofocus>
@@ -37,6 +38,10 @@
                   <option value="{{ $category->id }}">{{ $category-> name }}</option>
                 @endforeach
               </select>
+            </div>
+            <div class="form-group">
+              <label for="image" class="control-label">Imagen:</label>
+              <input type="file" name="image" class="form-control">
             </div>
             <div class="form-group label-floating is-empty">
               <label for="body" class="control-label">Contenido:</label>

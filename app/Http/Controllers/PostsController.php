@@ -8,6 +8,7 @@ use App\Category;
 use App\Tag;
 use Session;
 use Carbon\Carbon;
+use Image;
 
 class PostsController extends Controller
 {
@@ -59,6 +60,16 @@ class PostsController extends Controller
       $post->category_id = $request->category_id;
       $post->body        = $request->body;
       $post->slug        = str_slug($request->title, '-');
+
+      if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time().'.'.$image->getClientOriginalExtension();
+        $location = public_path('images/'.$filename);
+        Image::make($image)->resize(800, 400)->save($location);
+
+        $post->imagePath = $filename;
+      }
+
       $post->save();
       $post->tags()->sync($request->tags, false);
 

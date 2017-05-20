@@ -21,7 +21,7 @@
         <div class="card card-raised">
           <div class="content">
             <a href="{{ route('blog.single', $post->slug) }}">
-              <img src="http://lorempixel.com/1280/1080/technics" alt="ImageName" class="img-responsive img-container">
+              <img src="{{ asset('/images/'.$post->imagePath) }}" alt="{{ $post->title }}" class="img-responsive img-container">
             </a>
             <h4>{{ $post->title }}</h4>
             <p><span class="post-date">{{ $post->created_at->diffForHumans() }} por </span>Luis Molina</p>

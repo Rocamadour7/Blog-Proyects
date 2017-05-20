@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="content">
-          <img src="http://lorempixel.com/1110/500/technics" alt="ImageName" class="img-responsive">
+          <img src="{{ asset('/images/'.$post->imagePath) }}" alt="{{ $post->title }}" class="img-responsive">
           <div class="row post-info">
             <div class="col-xs-6">
               <span class="label label-warning text-left">{{ $post->category->name }}</span>
