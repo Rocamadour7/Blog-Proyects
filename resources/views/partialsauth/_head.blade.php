@@ -8,4 +8,5 @@
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/material-kit.css">
 <link rel="stylesheet" href="/css/auth.css">
+<link rel="stylesheet" href="/css/navbar.css">
 @yield('stylesheets')
